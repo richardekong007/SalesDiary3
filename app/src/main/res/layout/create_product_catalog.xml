@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/background"
+    android:id="@+id/createproductcatalog">
+ <RelativeLayout
+     android:orientation="vertical" android:layout_width="match_parent"
+     android:layout_height="match_parent">
+
+  <TextView android:id="@+id/text1"
+      android:text="What products do you wish to store?"
+      android:textColor="#fff"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:gravity="center"
+      android:textSize="25dp"
+      android:textStyle="bold"
+      android:layout_marginTop="30dp"
+      />
+  <TextView
+      android:id="@+id/descriptionLab"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="30dp"
+      android:layout_marginLeft="50dp"
+      android:layout_below="@+id/text1"
+      android:text="Description:"
+      android:textColor="#fff"
+      android:textSize="25dp"/>
+  <EditText
+      android:id="@+id/productdesc"
+      android:layout_width="250dp"
+      android:layout_height="40dp"
+      android:layout_marginTop="10dp"
+      android:layout_marginLeft="50dp"
+      android:layout_below="@id/descriptionLab"
+      android:background="#fff"/>
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/costpricelab"
+      android:layout_below="@+id/productdesc"
+      android:layout_marginLeft="50dp"
+      android:layout_marginTop="30dp"
+      android:text="Cost Price:"
+      android:textSize="25dp"
+      android:textColor="#fff"/>
+  <EditText
+      android:layout_width="250dp"
+      android:layout_height="40dp"
+      android:background="#fff"
+      android:layout_below="@id/costpricelab"
+      android:layout_marginTop="10dp"
+      android:layout_marginLeft="50dp"
+      android:id="@+id/costprice"/>
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/imgpathlab"
+      android:layout_marginTop="30dp"
+      android:layout_marginLeft="50dp"
+      android:layout_below="@id/costprice"
+      android:textColor="#fff"
+      android:textSize="25dp"
+      android:text="Image Path:"/>
+  <EditText
+      android:id="@+id/imgpath"
+      android:layout_width="125dp"
+      android:layout_height="40dp"
+      android:layout_below="@id/imgpathlab"
+      android:layout_marginTop="10dp"
+      android:layout_marginLeft="50dp"
+      android:background="#fff"
+      />
+  <android.support.design.widget.FloatingActionButton
+      android:id="@+id/capturebtn"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/imgpathlab"
+      android:layout_marginTop="10dp"
+      android:layout_marginLeft="15dp"
+      android:layout_toRightOf="@+id/imgpath"
+      app:backgroundTint="#FF021556"
+      app:srcCompat="@drawable/ic_capture"
+      />
+
+
+  <TextView android:id="@+id/stock"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="30dp"
+      android:layout_marginLeft="50dp"
+      android:layout_below="@+id/imgpath"
+      android:textColor="#fff"
+      android:textSize="25dp"
+      android:text="Stock:"
+      />
+  <EditText
+      android:id="@+id/stockValue"
+      android:layout_width="200dp"
+      android:layout_height="40dp"
+      android:layout_below="@id/stock"
+      android:layout_marginTop="10dp"
+      android:layout_marginLeft="50dp"
+      android:background="#fff"/>
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="25dp"
+    android:layout_below="@+id/stock"
+    android:layout_toRightOf="@+id/stockValue">
+
+ <android.support.design.widget.FloatingActionButton
+     android:id="@+id/store"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_gravity="bottom|end"
+     android:layout_margin="16dp"
+     app:srcCompat="@drawable/ic_add_stock"
+     app:backgroundTint="@color/store_button"
+     />
+</LinearLayout>
+
+
+
+ </RelativeLayout>
+</ScrollView>
