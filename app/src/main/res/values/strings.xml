@@ -3,8 +3,25 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
     <string name="action_settings">Settings</string>
+
+    <!--login strings-->
+    <string name="sales_record_suffix">_Sales_Records</string>
+    <string name="invalid_user_message">User name does not exist</string>
+    <string name="error_message">ERROR MESSAGE</string>
+    <string name="space_pattern">%s</string>
+    <string name="closebtn">Close</string>
+    <string name="info_dialog_title">MESSAGE</string>
+    <string name="info_dialog_message">Logging in ...</string>
+    <string name="Okbtn">Ok</string>
+    <string name="error_dialog_title">ERROR MESSAGE</string>
+    <string name="error_dialog_message">No Product Catalog available!</string>
+    <string name="confirm_dialog_title">CONFIRMATION MESSAGE</string>
+    <string name="confirm_dialog_message">Do you wish to create a product catalog now</string>
+    <string name="nobtn">No</string>
+    <string name="yesbtn">Yes</string>
+    <string name=""
+
 
     <string name="inflowsummaryreport">Inflow</string>
     <string name="outflowsummaryreport">Outflow</string>
