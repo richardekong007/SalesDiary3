@@ -16,20 +16,14 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.support.design.widget.FloatingActionButton;
 import android.widget.EditText;
-import android.widget.ImageButton;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.Date;
 
 import static android.app.Activity.RESULT_OK;
@@ -41,12 +35,11 @@ public class createProductCatalog extends Fragment
     EditText productDesc;
     EditText imgpath;
     Uri pictureUri;
-    userProductCatalog product;
+    Product product;
     signUp signup;
     private  Bundle extras;
     private String tableName;
     productCatalogview productList;
-    CustomCursorAdapter cca;
     private View v;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle b)
@@ -95,7 +88,7 @@ public class createProductCatalog extends Fragment
                             imgpath.getText().toString().equals("") || stockValue.getText().toString().equals("")) ||
                             (description.length() <= 1 || imagePath.length() <= 1 || !(stock instanceof Integer) ||
                                     !(price instanceof Double)))) {
-                        product = new userProductCatalog(description, price, imagePath, stock);
+                        product = new Product(description, price, imagePath, stock);
                         db.addToProductCatalog(product, tableName);
                         AlertDialog.Builder infoDialog = new AlertDialog.Builder(v.getContext());
                         infoDialog.setTitle("MESSAGE");
