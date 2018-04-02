@@ -50,7 +50,7 @@ public class databaseManager extends SQLiteOpenHelper {
         db.execSQL(createTable);
         //table creation statement for salesRecord
         String createTable2 = "CREATE TABLE " + table2 + "(" + product_id + " INTEGER," + product_code + " VARCHAR PRIMARY KEY," + product_name +
-                " Name TEXT," + quantity + " DECIMAL," + price + " DECIMAL," + imagePath + " TEXT," + date + " VARCHAR," + time + " VARCHAR" + ")";
+                " TEXT," + quantity + " DECIMAL," + price + " DECIMAL," + imagePath + " TEXT," + date + " VARCHAR," + time + " VARCHAR" + ")";
         db.execSQL(createTable2);
     }
 
@@ -205,7 +205,7 @@ public class databaseManager extends SQLiteOpenHelper {
                 "DATETIME DATETIME DEFAULT (CURRENT_TIMESTAMP) NOT NULL" +")";
         db.execSQL(createTableStatement);
     }
-    public void addToProductCatalog(userProductCatalog product, String tableName) {
+    public void addToProductCatalog(Product product, String tableName) {
 
         SQLiteDatabase db = this.getWritableDatabase();
         String description = "DESCRIPTION";
@@ -218,21 +218,21 @@ public class databaseManager extends SQLiteOpenHelper {
         values.put(COSTPRICE, product.getCostPrice());
         values.put(STOCK, product.getStock());
         values.put(imageLocation, product.getImagePath());
-        //insert values into the userProductCatalog
+        //insert values into the Product
         db.insert(tableName, null, values);
 
     }
 
     public Cursor getAllProductsInCatalog(String tableName) {
         String statement = "SELECT * FROM " + tableName;
-        //List<userProductCatalog> products = new ArrayList<userProductCatalog>();
+        //List<Product> products = new ArrayList<Product>();
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(statement, null);
 
         //loop through items in table
        /** if (cursor.moveToFirst()) {
             do {
-                userProductCatalog productCatalog = new userProductCatalog();
+                Product productCatalog = new Product();
                 productCatalog.setDescription(cursor.getString(1));
                 productCatalog.setImagePath(cursor.getString(1));
                 productCatalog.setCostPrice(cursor.getDouble(2));
@@ -245,8 +245,29 @@ public class databaseManager extends SQLiteOpenHelper {
 
     }
 
+    public List<Product> getListOfCatalog(String tableName){
+        List <Product> catalog = new ArrayList<>();
+        String statement = "SELECT * FROM " + tableName;
+        try(SQLiteDatabase db = this.getReadableDatabase()){
+            try(Cursor cursor = db.rawQuery(statement,null)){
+                if (cursor.moveToFirst()){
+                    do{
+                        Product product = new Product(cursor.getInt(cursor.getColumnIndexOrThrow("ID")),
+                                cursor.getString(cursor.getColumnIndexOrThrow("DESCRIPTION")),
+                                cursor.getDouble(cursor.getColumnIndexOrThrow("COSTPRICE")),
+                                cursor.getString(cursor.getColumnIndexOrThrow("IMAGEPATH")),
+                                cursor.getInt(cursor.getColumnIndexOrThrow("STOCK")));
+                        catalog.add(product);
+                    } while(cursor.moveToNext());
+                }
+            }
+
+        }
+        return catalog;
+    }
+
     public int updateProductInCatalog(String tableName) {
-        userProductCatalog product=new userProductCatalog();
+        Product product=new Product();
         String description = "DESCRIPTION";
         String STOCK = "STOCK";
         String COSTPRICE = "COSTPRICE";
@@ -262,7 +283,7 @@ public class databaseManager extends SQLiteOpenHelper {
     }
     public void deleteProductFromCatalog(int id,String tableName)
     {
-        //userProductCatalog product=new userProductCatalog();
+        //Product product=new Product();
         String ID="ID";
         SQLiteDatabase db=this.getWritableDatabase();
         db.delete(tableName,ID+"=?",new String[]{String.valueOf(id)});

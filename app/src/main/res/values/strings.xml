@@ -20,8 +20,9 @@
     <string name="confirm_dialog_message">Do you wish to create a product catalog now</string>
     <string name="nobtn">No</string>
     <string name="yesbtn">Yes</string>
-    <string name=""
-
+    <string name="error_password_message">Wrong password!</string>
+    <string name="error_login_message">Invalid or no Username and Password specified</string>
+    <string name="confirm_question_message">Are you sure?</string>
 
     <string name="inflowsummaryreport">Inflow</string>
     <string name="outflowsummaryreport">Outflow</string>
