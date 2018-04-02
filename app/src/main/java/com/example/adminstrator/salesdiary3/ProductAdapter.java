@@ -21,7 +21,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
     private List<Product> products = new ArrayList<>();
 
-    private ProductDetailClickListen productDetailClickListen;
+    private ProductDetailClickListener productDetailClickListener;
     public ProductAdapter(List<Product>products){
         this.products = products;
     }
@@ -45,7 +45,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         holder.stock.setText(String.format(Locale.US,"%d",product.getStock()));
 
         holder.container.setOnLongClickListener((view)-> {
-            productDetailClickListen.onDetailClick(product);
+            productDetailClickListener.onDetailClick(product);
             return false;
         });
     }
@@ -55,8 +55,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         return products.size();
     }
 
-    public void setProductDetailClickListener(ProductDetailClickListen productDetailClickListener){
-        this.productDetailClickListen = productDetailClickListener;
+    public void setProductDetailClickListener(ProductDetailClickListener productDetailClickListener){
+        this.productDetailClickListener = productDetailClickListener;
     }
 
 
@@ -77,7 +77,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         }
     }
 
-    public interface ProductDetailClickListen{
+    public interface ProductDetailClickListener {
         void onDetailClick(Product product);
     }
 }
