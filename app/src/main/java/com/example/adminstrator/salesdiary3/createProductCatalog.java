@@ -25,6 +25,7 @@ import android.widget.EditText;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -268,8 +269,7 @@ public class createProductCatalog extends Fragment
             cursor.moveToFirst();
             return cursor.getString(columnIndex);
         }
-        catch(Exception e)
-        {
+        catch(Exception e) {
             return uri.getPath();
         }
     }
@@ -280,11 +280,12 @@ public class createProductCatalog extends Fragment
           obtain the user specified product descriotion value and store in the picture Name variable
           return the concatinated  value of the pictureName, timestamp and picture format (in jpg)
         */
-        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyyMMdd_HHmmss");
+        String format = "%s_%s.jpg";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd_HHmmss",Locale.US);
         String timeStamp=simpleDateFormat.format(new Date());
         String pictureName=productDesc.getText().toString();
 
-        return pictureName+"_"+timeStamp+".jpg";
+        return String.format(Locale.US,format,pictureName,timeStamp);
     }
 
     @Override

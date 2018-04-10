@@ -13,4 +13,9 @@
     <dimen name="header_text_size">25sp</dimen>
     <dimen name="label_size">25sp</dimen>
 
+    <!-- product catalog fields-->
+    <dimen name="description">120dp</dimen>
+    <dimen name="image">100dp</dimen>
+    <dimen name="other_fields">90dp</dimen>
+    <dimen name="field_text_size">15sp</dimen>
 </resources>

@@ -45,4 +45,9 @@
     <string name="log_up_button_text">Log in</string>
     <string name="log_in_button_text">LOG IN</string>
 
+    <!-- product catalog fields-->
+    <string name="product">PRODUCT</string>
+    <string name="image">IMAGE</string>
+    <string name="price">PRICE</string>
+    <string name="stock">STOCK</string>
 </resources>
