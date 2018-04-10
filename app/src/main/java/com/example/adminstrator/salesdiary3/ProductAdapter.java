@@ -57,7 +57,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     }
 
     public void setProducts(List<Product> products) {
-        this.products = products != null ? products : this.products;
+        this.filteredProductNames = products != null ? products : this.products;
     }
 
 
